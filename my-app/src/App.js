@@ -19,11 +19,14 @@ function HelloWorld() {
 function App() {
 
   const logotipo = logo;
-  const nombre = "Hello World";
+
+  const mostrarImagen = true;
 
   return (
     <div className="App">
       <header className="App-header">
+        
+
         <img src={logotipo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -39,6 +42,16 @@ function App() {
         </a>
       </header>
       <HelloWorld />
+      <div>
+      {/* react */}
+      {mostrarImagen? <img src={logotipo} className="App-logo" alt="logo" /> : 'No hay imagen para mostrar'}
+
+      {/* vue */}
+      {/* <img v-if="mostrarImagen" src={logotipo} className="App-logo" alt="logo" />
+      <span v-else>No hay imagen</span> */}
+
+
+      </div>
     </div>
   );
 }
