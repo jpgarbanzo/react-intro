@@ -35,12 +35,15 @@ function App() {
       </div>
     );
   });
-
+  // mostrar todos los elementos del menú
+  // agregar id, poner el link como href
+  // si está seleccionado, poner un *
   const menu = opcionesMenu.map(elemento => {
     return (
-      <>
-        { elemento.texto }
-      </>
+      <p>
+        { elemento.texto } 
+        { elemento.isSelected ? (<b>*</b>) : '' }
+      </p>
     );
   });
 
