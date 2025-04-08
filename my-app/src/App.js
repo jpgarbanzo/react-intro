@@ -18,6 +18,14 @@ function HelloWorld() {
 
 const entrada = ['a', 'b', 'c'];
 
+const opcionesMenu = [ { 
+    id: 1, texto: 'Code', link: '/', isSelected: true
+  }, { 
+    id: 2, texto: 'Issues', link: '/issues', isSelected: false
+  }, { 
+    id: 3, texto: 'Pull-requests', link: '/pulls', isSelected: false
+  }];
+
 function App() {
 
   const parrafos = entrada.map(elemento => {
@@ -25,6 +33,14 @@ function App() {
       <div>
         <p>{elemento}</p>
       </div>
+    );
+  });
+
+  const menu = opcionesMenu.map(elemento => {
+    return (
+      <>
+        { elemento.texto }
+      </>
     );
   });
 
@@ -86,6 +102,10 @@ function App() {
       </div>
       <h1>Estos son los elementos:</h1>
       {parrafos}
+
+
+      <h1>Estos son los elementos del menú:</h1>
+      {menu}
     </div>
   );
 }
