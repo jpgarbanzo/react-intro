@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 // #1 components son funciones que retornan HTML
 // #2 recordar los paréntesis
@@ -27,8 +28,12 @@ const opcionesMenu = [ {
   }];
 
 function App() {
+  const [elementoActivo, setElementoActivo] = useState('hola');
+
   const actualizarSeleccion = (id = null) => {
     console.log('click en el elemento', id);
+
+    setElementoActivo(id);
   };
 
   // mostrar todos los elementos del menú
@@ -42,16 +47,11 @@ function App() {
         style={{ margin: '10px' }} 
         onClick={actualizarSeleccion.bind(this, elemento.id)}>
         { elemento.texto }
-        { elemento.isSelected && (<b>*</b>) }
+        { elemento.id === elementoActivo && 
+          (<b>*</b>) }
       </a>
     );
   });
-
-
-
-
-
-
 
   
   const parrafos = entrada.map(elemento => {
@@ -73,7 +73,7 @@ function App() {
   const contador = 20;
 
   return (
-    <div className="App">
+    <div className="App" style={{ padding: '0 0 50px 0' }}>
       <header className="App-header">
 
         <img src={logotipo} className="App-logo" alt="logo" />
@@ -124,6 +124,9 @@ function App() {
 
       <h1>Estos son los elementos del menú:</h1>
       {menu}
+
+      <h1>Este es el elemento seleccionado</h1>
+      {elementoActivo}
     </div>
   );
 }
