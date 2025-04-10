@@ -19,31 +19,38 @@ function HelloWorld() {
 const entrada = ['a', 'b', 'c'];
 
 const opcionesMenu = [ { 
-    id: 1, texto: 'Code', link: '/', isSelected: true
+    id: 1, texto: 'Code', link: '/', isSelected: false
   }, { 
-    id: 2, texto: 'Issues', link: '/issues', isSelected: false
+    id: 2, texto: 'Issues', link: '/issues', isSelected: true
   }, { 
     id: 3, texto: 'Pull-requests', link: '/pulls', isSelected: false
   }];
 
 function App() {
-
-  const parrafos = entrada.map(elemento => {
-    return (
-      <div>
-        <p>{elemento}</p>
-      </div>
-    );
-  });
   // mostrar todos los elementos del menú
   // agregar id, poner el link como href
   // si está seleccionado, poner un *
   const menu = opcionesMenu.map(elemento => {
     return (
-      <p>
-        { elemento.texto } 
-        { elemento.isSelected ? (<b>*</b>) : '' }
-      </p>
+      <a href={elemento.link} key={elemento.id} style={{ margin: '10px' }}>
+        { elemento.texto }
+        { elemento.isSelected && (<b>*</b>) }
+      </a>
+    );
+  });
+
+
+
+
+
+
+
+  
+  const parrafos = entrada.map(elemento => {
+    return (
+      <div>
+        <p>{elemento}</p>
+      </div>
     );
   });
 
