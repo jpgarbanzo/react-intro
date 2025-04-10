@@ -27,12 +27,20 @@ const opcionesMenu = [ {
   }];
 
 function App() {
+  const actualizarSeleccion = (id = null) => {
+    console.log('click en el elemento', id);
+  };
+
   // mostrar todos los elementos del menú
   // agregar id, poner el link como href
   // si está seleccionado, poner un *
   const menu = opcionesMenu.map(elemento => {
     return (
-      <a href={elemento.link} key={elemento.id} style={{ margin: '10px' }}>
+      <a 
+        href={`#${elemento.link}`}
+        key={elemento.id} 
+        style={{ margin: '10px' }} 
+        onClick={actualizarSeleccion.bind(this, elemento.id)}>
         { elemento.texto }
         { elemento.isSelected && (<b>*</b>) }
       </a>
