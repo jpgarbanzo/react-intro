@@ -72,6 +72,16 @@ function App() {
   // "El contador es mayor a 5"
   const contador = 20;
 
+  const [contadorClics, setContadorClics] = useState(0);
+
+  const incrementarContador = () => {
+    setContadorClics(contadorClics + 1);
+  };
+
+  const decrementarContador = () => {
+    setContadorClics(contadorClics - 1);
+  };
+
   return (
     <div className="App" style={{ padding: '0 0 50px 0' }}>
       <header className="App-header">
@@ -127,6 +137,10 @@ function App() {
 
       <h1>Este es el elemento seleccionado</h1>
       {elementoActivo}
+
+      <h1>Contador de clics: {contadorClics}</h1>
+      <button onClick={decrementarContador}>Decrementar</button>
+      <button onClick={incrementarContador}>Incrementar</button>
     </div>
   );
 }
